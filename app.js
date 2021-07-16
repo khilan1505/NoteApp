@@ -1,5 +1,5 @@
  
-console.log("Welcome to notes app. This is app.js");
+console.log("Welcome to notes app.");
 showNotes();
 let addBtn = document.getElementById("addBtn");
 addBtn.addEventListener("click", function(e) {
@@ -13,7 +13,6 @@ addBtn.addEventListener("click", function(e) {
   notesObj.push(addText.value);
   localStorage.setItem("notes", JSON.stringify(notesObj));
   addText.value = "";
-//   console.log(notesObj);
   showNotes();
 });
 
@@ -44,8 +43,6 @@ function showNotes() {
 }
 
 function deleteNote(index) {
-//   console.log("I am deleting", index);
-
   let notes = localStorage.getItem("notes");
   if (notes == null) {
     notesObj = [];
@@ -63,7 +60,6 @@ let search = document.getElementById('searchTxt');
 search.addEventListener("input", function(){
 
     let inputVal = search.value.toLowerCase();
-    // console.log('Input event fired!', inputVal);
     let noteCards = document.getElementsByClassName('noteCard');
     Array.from(noteCards).forEach(function(element){
         let cardTxt = element.getElementsByTagName("p")[0].innerText;
@@ -73,6 +69,5 @@ search.addEventListener("input", function(){
         else{
             element.style.display = "none";
         }
-        // console.log(cardTxt);
     })
 })
